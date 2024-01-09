@@ -84,12 +84,10 @@ public class ProductTest extends BaseTest {
 
     @Test
     public void verify_able_to_remove_products() {
-
+        productPage.removeItems();
+        productPage.clickRandAddToCartBtn();
+        productPage.removeItems();
+        productPage.clickShopingCartIcon();
+        assertEquals(0, checkoutPage.getProductsName().size());
     }
-
-    @Test
-    public void verify_able_to_remove_all_products() {
-
-    }
-
 }

@@ -38,16 +38,16 @@ public class ProductPage {
 
     public List<String> getProductsName() {
         List<String> names = new ArrayList<>();
-        for(int i = 0; i<productsName.size(); i++) {
-            names.add(productsName.get(i).getText());
+        for (WebElement element : productsName) {
+            names.add(element.getText());
         }
         return names;
     }
 
     public List<Double> getProductsPrice() {
         List<Double> prices = new ArrayList<>();
-        for(int i = 0; i<productsPrice.size(); i++) {
-            prices.add(Double.parseDouble(productsPrice.get(i).getText().replace("$","")));
+        for (WebElement element : productsPrice) {
+            prices.add(Double.parseDouble(element.getText().replace("$", "")));
         }
         return prices;
     }
@@ -59,7 +59,7 @@ public class ProductPage {
 
     public Map<String, String> clickRandAddToCartBtn() {
         Random rand = new Random();
-        int randIdx = rand.nextInt(0, productsName.size()-1);
+        int randIdx = rand.nextInt(0, addToCartBtn.size()-1);
         addToCartBtn.get(randIdx).click();
 
         Map<String, String> map = new HashMap<>();
@@ -83,6 +83,6 @@ public class ProductPage {
     }
 
     public void removeItems() {
-            while(removeProductBtn.size() > 0) removeProductBtn.get(0).click();
+        while(removeProductBtn.size() > 0) removeProductBtn.get(0).click();
     }
 }
